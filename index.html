@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEZFLATAR TEAM</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 16px;
+            color: #fff;
+            font-style: italic;
+        }
+
+        button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .profile, .useful {
+            margin-top: 20px;
+        }
+
+        .profile p, .useful p {
+            font-size: 18px;
+        }
+
+        .useful button {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HEZFLATAR TEAM</h1>
+        <p>Вы находитесь в самой инновационной и удобной тиме СНГ, можете начинать работать.</p>
+        <button id="check-subscription">Проверить подписку</button>
+
+        <!-- Профиль -->
+        <div class="profile" style="display: none;">
+            <h2>💻 Профиль</h2>
+            <p>🆔 Мой ID: <span id="user-id"></span></p>
+            <p>💰 Баланс: <span id="balance">$0</span></p>
+            <p>👥 Рефералы: <span id="referrals">0</span></p>
+            <p>🕝 Время в тиме: <span id="time-in-team">0 дней</span></p>
+            <button id="get-referral-link">Получить реферальную ссылку</button>
+        </div>
+
+        <!-- Полезное -->
+        <div class="useful" style="display: none;">
+            <h2>Полезное</h2>
+            <button onclick="openLink('https://t.me/chat')">Чат</button>
+            <button onclick="openLink('https://t.me/payments')">Выплаты</button>
+            <button onclick="openLink('https://t.me/news')">Новости</button>
+            <button onclick="openLink('https://t.me/manuals')">Мануалы</button>
+            <button onclick="openLink('https://t.me/traffic')">Купить трафик</button>
+        </div>
+    </div>
+
+    <script>
+        // Получение данных пользователя
+        const userId = 123456789; // Замените на реальный ID
+        const referralLink = `https://t.me/botweebthree_bot?start=ref_${userId}`;
+
+        // Отображение профиля
+        document.getElementById('user-id').innerText = userId;
+        document.getElementById('get-referral-link').addEventListener('click', () => {
+            alert(`Ваша реферальная ссылка: ${referralLink}`);
+        });
+
+        // Проверка подписки
+        document.getElementById('check-subscription').addEventListener('click', async () => {
+            const response = await fetch('/check-subscription', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_id: userId })
+            });
+            const data = await response.json();
+            if (data.subscribed) {
+                document.querySelector('.profile').style.display = 'block';
+                document.querySelector('.useful').style.display = 'block';
+                alert('Вы подписаны!');
+            } else {
+                alert('Вы не подписаны на всех спонсоров!');
+            }
+        });
+
+        // Открытие ссылок
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
