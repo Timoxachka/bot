@@ -3,56 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЭНГЕТЕР - МАГАЗИН</title>
+    <title>SHIFTER Магазин</title>
+    <!-- Подключение Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Обнуление стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Основной фон и стили страницы */
         body {
-            background-image: url('https://iimg.su/i/C0nPX');
-            background-size: cover;
-            background-repeat: no-repeat;
             font-family: Arial, sans-serif;
+            background: url('https://i.postimg.cc/QCBkQ2Yf/54e6409898f9985eec848f9dc8e67c3d.png') no-repeat center center fixed;
+            background-size: cover;
             color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             text-align: center;
         }
+
+        /* Основной контейнер */
         .container {
-            padding: 20px;
+            width: 500px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
-        h1 {
-            font-size: 2em;
+
+        /* Заголовок SHIFTER */
+        .title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 50px; /* Размер шрифта */
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            margin-top: -80px; /* Поднимаем текст выше */
         }
-        h2 {
-            font-size: 1.5em;
+
+        /* Подзаголовок */
+        .subtitle {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
         }
-        input {
-            width: 200px;
+
+        /* Поле ввода */
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-container input {
+            width: 100%;
             padding: 10px;
-            margin: 10px;
+            padding-right: 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
+
+        /* Кнопка поиска */
+        .input-container button {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background: none;
             border: none;
             cursor: pointer;
+            font-size: 18px;
+            color: gray;
         }
-        button:hover {
-            background-color: #0056b3;
+
+        .input-container button:hover {
+            color: white;
+        }
+
+        /* Кнопка "ИСКАТЬ" */
+        .search-button {
+            background: none;
+            border: none;
+            color: gray;
+            font-size: 18px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .search-button:hover {
+            color: white;
+        }
+
+        /* Блок аккаунта */
+        .account-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .account-container:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .account-container img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .account-container span {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        /* Нижний текст */
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: gray;
+        }
+
+        .footer p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
+    <!-- Заголовок SHIFTER -->
+    <div class="title">SHIFTER</div>
+
+    <!-- Основной контейнер -->
     <div class="container">
-        <h1>ЭНГЕТЕР</h1>
-        <h2>МАГАЗИН</h2>
-        <p>Официальный магазин SHIFTER</p>
-        <p>Совершайте покупки без помех и ограничений</p>
-        <p>Укажите свой аккаунт</p>
-        <p>Найдите его по игровому ID</p>
-        <input type="text" placeholder="ID">
-        <br>
-        <button>ИСКАТЬ</button>
-        <p>ID 00000000</p>
-        <p><strong>Name</strong></p>
-        <p>Публичный оферта</p>
+        <!-- Подзаголовок -->
+        <div class="subtitle">
+            Официальный магазин SHIFTER<br>
+            Совершайте покупки без помех и ограничений
+        </div>
+
+        <!-- Поле ввода ID -->
+        <div class="input-container">
+            <input type="text" placeholder="ID">
+            <button>🔍</button>
+        </div>
+
+        <!-- Кнопка ИСКАТЬ -->
+        <div class="search-button">ИСКАТЬ</div>
+
+        <!-- Аккаунт пользователя -->
+        <div class="account-container">
+            <img src="https://via.placeholder.com/40" alt="Avatar">
+            <span>
+                ID 00000000<br>
+                Name
+            </span>
+        </div>
+
+        <!-- Подвал -->
+        <div class="footer">
+            <p>Публичная оферта</p>
+            <p>Политика конфиденциальности</p>
+            <p>v0.31.5.37806424</p>
+        </div>
     </div>
 </body>
 </html>
+
