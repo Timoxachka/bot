@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHIFTER</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Inter:wght@400;500;700&display=swap'); /* Новый шрифт Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Inter:wght@400;500;700&display=swap'); /* Шрифты Orbitron и Inter */
 
         * {
             margin: 0;
@@ -27,7 +27,7 @@
             animation: fadeIn 2s ease-in-out;
         }
 
-        /* Анимация для плавного появления */
+        /* Анимация появления */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -39,11 +39,10 @@
             }
         }
 
-        /* Заголовок SHIFTER с эффектом свечения */
+        /* Заголовок SHIFTER */
         .header {
             font-size: 70px;
             font-weight: 700;
-            margin-bottom: 10px;
             color: #ffffff;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px #00d4ff;
             animation: glow 2s infinite alternate;
@@ -58,55 +57,53 @@
             }
         }
 
-        /* Подзаголовок и описание */
+        /* Подзаголовок */
         .sub-header {
-            font-size: 22px;
+            font-size: 26px; /* Увеличил размер */
+            font-weight: 700; /* Сделал жирнее */
             margin-bottom: 10px;
             color: #b5f0ff;
             text-transform: uppercase;
         }
 
         .description {
-            font-size: 16px;
-            margin-bottom: 30px;
+            font-size: 18px; /* Увеличил размер */
+            font-weight: 600; /* Сделал жирнее */
+            margin-bottom: 40px;
             color: #e0e0e0;
         }
 
-        /* Блок для ввода ID */
-        .input-block {
-            background-color: rgba(30, 30, 30, 0.85);
-            width: 400px;
+        /* Цельная полупрозрачная панель */
+        .panel {
+            background-color: rgba(30, 30, 30, 0.85); /* Полупрозрачный темный фон */
+            width: 500px; /* Увеличил ширину */
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px; /* Увеличил отступы */
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(5px);
+            text-align: center;
             transition: transform 0.3s ease;
+            animation: fadeIn 1s ease-in-out;
         }
 
-        .input-block:hover {
+        .panel:hover {
             transform: translateY(-5px);
         }
 
-        .input-title {
-            font-weight: 500;
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
+        /* Поле ввода */
         input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            margin-bottom: 10px;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 25px;
             border: 2px solid #444;
             outline: none;
             border-radius: 5px;
             background-color: #3c3c3c;
             color: white;
             text-align: center;
-            font-family: 'Inter', sans-serif; /* Новый шрифт для цифр */
-            font-size: 16px;
+            font-family: 'Inter', sans-serif; /* Шрифт Inter для цифр */
+            font-size: 18px;
             transition: all 0.3s ease;
         }
 
@@ -115,9 +112,10 @@
             box-shadow: 0 0 10px #00d4ff;
         }
 
+        /* Кнопка поиска */
         button {
-            width: 80%;
-            padding: 10px;
+            width: 100%;
+            padding: 12px;
             border: none;
             border-radius: 5px;
             background-color: #00d4ff;
@@ -134,49 +132,58 @@
         }
 
         /* Результат поиска */
-        .result-block {
-            margin-top: 20px;
+        .result {
+            margin-top: 25px;
+            padding: 12px;
             background-color: rgba(50, 50, 50, 0.8);
-            padding: 10px;
             border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 400px;
-            margin: 20px auto;
-            animation: slideUp 1s ease-in-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .result-text {
+            font-family: 'Inter', sans-serif;
+            color: #e0e0e0;
             text-align: left;
-            font-size: 14px;
-            color: #dcdcdc;
-            font-family: 'Inter', sans-serif; /* Шрифт Inter для цифр */
         }
 
-        .result-icon {
-            font-size: 20px;
-            color: #00d4ff;
+        .result-id {
+            font-size: 20px; /* Увеличил шрифт */
+            font-weight: bold;
+        }
+
+        .result-name {
+            font-size: 18px; /* Чуть крупнее */
         }
 
         /* Footer */
         .footer {
             margin-top: 50px;
-            font-size: 12px;
-            color: #888;
+            font-size: 14px; /* Увеличил размер шрифта */
+            color: #b5b5b5; /* Сделал текст немного светлее */
             text-align: center;
-            animation: fadeIn 2s ease-in-out;
+            padding: 20px 0;
+        }
+
+        /* Адаптивность */
+        .panel {
+            width: 90%; /* Вместо фиксированных 500px */
+            max-width: 500px; /* Максимальная ширина */
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                font-size: 50px; /* Меньше шрифт на мобильных устройствах */
+            }
+
+            .sub-header {
+                font-size: 20px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+        }
+
+        .result:hover {
+            background-color: rgba(70, 70, 70, 0.8);
+            transform: scale(1.02);
+            transition: all 0.2s ease;
         }
     </style>
 </head>
@@ -190,21 +197,14 @@
             Совершайте покупки без помех и ограничений
         </div>
 
-        <!-- Поле ввода ID -->
-        <div class="input-block">
-            <div class="input-title">Укажите свой аккаунт</div>
-            <p>Найдите его по игровому ID</p>
-            <input type="text" placeholder="ID">
-            <button>Искать</button>
-        </div>
-
-        <!-- Блок результата -->
-        <div class="result-block">
-            <div class="result-text">
-                ID 00000000<br>
-                Name
+        <!-- Цельная панель с поиском и результатом -->
+        <div class="panel">
+            <input type="text" placeholder="Введите ID">
+            <button aria-label="Поиск продукта">Искать</button>
+            <div class="result">
+                <div class="result-id">ID 00000000</div>
+                <div class="result-name">Name</div>
             </div>
-            <div class="result-icon">></div>
         </div>
 
         <!-- Footer -->
@@ -214,6 +214,45 @@
             v0.31.5.37806424
         </div>
     </div>
+
+    <!-- JavaScript для обработки поиска -->
+    <script>
+// Получаем элементы на странице
+const inputField = document.querySelector('input[type="text"]');
+const resultId = document.querySelector('.result-id');
+const resultName = document.querySelector('.result-name');
+const searchButton = document.querySelector('button');
+
+// Слушаем клик по кнопке
+searchButton.addEventListener('click', async () => {
+    const id = inputField.value.trim(); // Получаем значение из поля ввода
+
+    if (id) {
+        try {
+            // Отправляем запрос на сервер
+            const response = await fetch('http://localhost:3000/check-user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id }), // Отправляем ID в теле запроса
+            });
+
+            const data = await response.json();
+
+            // Обновляем текст в блоке с результатом
+            resultId.textContent = `ID: ${id}`;
+            resultName.textContent = data.message;
+        } catch (error) {
+            resultId.textContent = 'Ошибка при подключении к серверу';
+            resultName.textContent = '';
+        }
+    } else {
+        resultId.textContent = 'ID: 00000000';
+        resultName.textContent = 'Name: Не найдено';
+    }
+});
+    </script>
 </body>
 </html>
 
