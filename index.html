@@ -3,209 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHIFTER Магазин</title>
+    <title>ЭНГЕТЕР - МАГАЗИН</title>
     <style>
-        /* CSS */
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('https://iimg.su/i/C0nPX'); /* Задний фон */
+            background-image: url('https://iimg.su/i/C0nPX');
             background-size: cover;
-            background-position: center;
-            color: #fff;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
         }
-
         .container {
-            max-width: 600px;
-            width: 100%;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон для контейнера */
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
         }
-
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
+        h1 {
+            font-size: 2em;
         }
-
-        .page.active {
-            display: block;
+        h2 {
+            font-size: 1.5em;
         }
-
-        h1, h2 {
-            text-align: center;
-            color: #fff;
-        }
-
-        p {
-            text-align: center;
-            color: #ddd;
-        }
-
-        form {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        input[type="text"] {
-            width: 80%;
+        input {
+            width: 200px;
             padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #555;
-            border-radius: 4px;
-            background-color: #333;
-            color: #fff;
+            margin: 10px;
         }
-
         button {
             padding: 10px 20px;
             background-color: #007BFF;
-            color: #fff;
+            color: white;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-
         button:hover {
             background-color: #0056b3;
-        }
-
-        .offer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #777;
-        }
-
-        .currency-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .currency-item {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #444;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
-            color: #fff;
-        }
-
-        .currency-item:hover {
-            transform: scale(1.05);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Страница 1: Ввод ID -->
-        <div id="page1" class="page active">
-            <h1>ЭНГЕТЕР</h1>
-            <h2>МАГАЗИН</h2>
-            <p>Официальный магазин SHIFTER. Совершайте покупки без помех и ограничений.</p>
-            <form id="searchForm">
-                <label for="id">Укажите свой аккаунт. Найдите его по игровому ID:</label>
-                <input type="text" id="id" name="id" placeholder="ID" maxlength="8" required>
-                <button type="submit">ИСКАТЬ</button>
-            </form>
-            <p class="offer">Публичная оферта</p>
-        </div>
-
-        <!-- Страница 2: Валюта -->
-        <div id="page2" class="page">
-            <h1>SHIPTER</h1>
-            <h2>BAJIOTA</h2>
-            <p>TIPOMOKOA</p>
-            <p>ID: 08090909</p>
-            <p>Name</p>
-            <div class="currency-list">
-                <div class="currency-item">
-                    <span>100</span>
-                    <span>85P</span>
-                </div>
-                <div class="currency-item">
-                    <span>500</span>
-                    <span>85P</span>
-                </div>
-                <div class="currency-item">
-                    <span>1000</span>
-                    <span>85P</span>
-                </div>
-                <div class="currency-item">
-                    <span>3000</span>
-                    <span>85P</span>
-                </div>
-            </div>
-            <button id="promoButton">АКТИВИРОВАТЬ ПРОМОКОД</button>
-        </div>
-
-        <!-- Страница 3: Активация промокода -->
-        <div id="page3" class="page">
-            <h1>АКТИВИРОВАТЬ ПРОМОКОД</h1>
-            <form id="promoForm">
-                <button type="submit">ПРИМЕНИТЬ</button>
-            </form>
-        </div>
+        <h1>ЭНГЕТЕР</h1>
+        <h2>МАГАЗИН</h2>
+        <p>Официальный магазин SHIFTER</p>
+        <p>Совершайте покупки без помех и ограничений</p>
+        <p>Укажите свой аккаунт</p>
+        <p>Найдите его по игровому ID</p>
+        <input type="text" placeholder="ID">
+        <br>
+        <button>ИСКАТЬ</button>
+        <p>ID 00000000</p>
+        <p><strong>Name</strong></p>
+        <p>Публичный оферта</p>
     </div>
-
-    <script>
-        // JavaScript
-        document.addEventListener('DOMContentLoaded', function () {
-            const searchForm = document.getElementById('searchForm');
-            const promoButton = document.getElementById('promoButton');
-            const promoForm = document.getElementById('promoForm');
-            const page1 = document.getElementById('page1');
-            const page2 = document.getElementById('page2');
-            const page3 = document.getElementById('page3');
-
-            // Переход на страницу 2 (Валюта)
-            searchForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                page1.classList.remove('active');
-                page2.classList.add('active');
-            });
-
-            // Переход на страницу 3 (Активация промокода)
-            promoButton.addEventListener('click', function () {
-                page2.classList.remove('active');
-                page3.classList.add('active');
-            });
-
-            // Возврат на страницу 2 (Валюта) после активации промокода
-            promoForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                page3.classList.remove('active');
-                page2.classList.add('active');
-            });
-        });
-    </script>
 </body>
 </html>
